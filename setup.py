@@ -1,7 +1,7 @@
-from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Build import cythonize
 import numpy as np
+from setuptools import find_packages, setup
 
 setup(
     name='densecrf_np',
@@ -10,6 +10,7 @@ setup(
     author_email="sadeep@apache.org",
     url='https://github.com/aboomer07/densecrf_np',
     platforms=["any"],
+    packages=find_packages(exclude=["test"]),
     entry_points={
             'console_scripts': [
                   'densecrf_np = densecrf_np.__main__:main'
