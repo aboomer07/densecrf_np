@@ -13,7 +13,7 @@ setup(
     packages=find_packages(exclude=["test"]),
     entry_points={
             'console_scripts': [
-                  'densecrf_np = densecrf_np.__main__'
+                  'densecrf_np = densecrf_np.__main__:main'
             ]
     },
     ext_modules=cythonize(
