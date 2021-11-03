@@ -10,7 +10,7 @@ setup(
     author_email="sadeep@apache.org",
     url='https://github.com/aboomer07/densecrf_np',
     platforms=["any"],
-    packages=find_packages(),
+    packages=['densecrf_np'],
     include_package_data=True
 #     ext_modules=cythonize(
 #         Extension(
