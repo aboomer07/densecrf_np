@@ -10,12 +10,8 @@ setup(
     author_email="sadeep@apache.org",
     url='https://github.com/aboomer07/densecrf_np',
     platforms=["any"],
-    packages=find_packages(exclude=["test"]),
-    entry_points={
-            'console_scripts': [
-                  'densecrf_np = densecrf_np.__main__:main'
-            ]
-    },
+    packages=find_packages(),
+    include_package_data=True,
     ext_modules=cythonize(
         Extension(
             "densecrf_np.py_permutohedral",
