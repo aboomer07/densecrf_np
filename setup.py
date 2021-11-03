@@ -11,7 +11,11 @@ setup(
     url='https://github.com/aboomer07/densecrf_np',
     platforms=["any"],
     packages=['densecrf_np'],
-    include_package_data=True
+    package_dir={
+        "": ".",
+        "densecrf_np": "./densecrf_np",
+    },
+    include_package_data=True,
 #     ext_modules=cythonize(
 #         Extension(
 #             "densecrf_np.py_permutohedral",
