@@ -13,7 +13,7 @@ setup(
     packages=['densecrf'],
     package_dir={
         "": ".",
-        "densecrf": "./densecrf_np/densecrf",
+        "densecrf": "./densecrf_np/densecrf"
     },
     include_package_data=True,
 #     ext_modules=cythonize(
