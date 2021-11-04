@@ -10,10 +10,10 @@ setup(
     author_email="sadeep@apache.org",
     url='https://github.com/aboomer07/densecrf_np',
     platforms=["any"],
-    packages=['densecrf_np'],
+    packages=['densecrf'],
     package_dir={
         "": ".",
-        "densecrf_np": "./densecrf_np",
+        "densecrf": "./densecrf_np/densecrf",
     },
     include_package_data=True,
 #     ext_modules=cythonize(
