@@ -25,6 +25,7 @@ SOFTWARE.
 from densecrf_np.pairwise import SpatialPairwise, BilateralPairwise
 from densecrf_np.params import DenseCRFParams
 from densecrf_np.util import softmax
+import numpy as np
 
 
 class DenseCRF(object):
