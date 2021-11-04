@@ -29,14 +29,19 @@ from densecrf_np.util import softmax
 
 class DenseCRF(object):
 
-    def __init__(self, image, params: DenseCRFParams):
-        alpha, beta, gamma = params.alpha, params.beta, params.gamma
+    def __init__(self, image):
+#         alpha, beta, gamma = params.alpha, params.beta, params.gamma
+        self.alpha=80
+        self.beta=13
+        self.gamma=3
+        self.spatial_ker_weight=3
+        self.bilateral_ker_weight=10
 
         self.sp = SpatialPairwise(image, gamma, gamma)
         self.bp = BilateralPairwise(image, alpha, alpha, beta, beta, beta)
 
-        self.spatial_weight = params.spatial_ker_weight
-        self.bilateral_weight = params.bilateral_ker_weight
+#         self.spatial_weight = params.spatial_ker_weight
+#         self.bilateral_weight = params.bilateral_ker_weight
 
     def infer(self, unary_logits, num_iterations=5):
         q = softmax(unary_logits)
