@@ -35,8 +35,8 @@ class DenseCRF(object):
         self.alpha=80
         self.beta=13
         self.gamma=3
-        self.spatial_ker_weight=3
-        self.bilateral_ker_weight=10
+        self.spatial_weight=3
+        self.bilateral_weight=10
         
         self.img = image
         
