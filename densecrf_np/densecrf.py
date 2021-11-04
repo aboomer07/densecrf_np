@@ -38,7 +38,7 @@ class DenseCRF(object):
         self.spatial_ker_weight=3
         self.bilateral_ker_weight=10
         
-        image = np.resize(image, (image.shape[0] * image.shape[1], 1))
+        self.img = image
         
         self.sp = SpatialPairwise(image, self.gamma, self.gamma)
         self.bp = BilateralPairwise(image, self.alpha, self.alpha, self.beta, self.beta, self.beta)
@@ -47,6 +47,7 @@ class DenseCRF(object):
 #         self.bilateral_weight = params.bilateral_ker_weight
 
     def infer(self, unary_logits, num_iterations=5):
+        unary_logits = np.resize(unary_logits, (512, 512, 18))
         q = softmax(unary_logits)
 
         for _ in range(num_iterations):
@@ -59,5 +60,6 @@ class DenseCRF(object):
             tmp1 = tmp1 + self.bilateral_weight * output
 
             q = softmax(tmp1)
-
+        
+        q = np.resize(q, (65536, 18))
         return q
