@@ -12,11 +12,11 @@ setup(
     platforms=["any"],
     packages=['densecrf_np'],
     include_package_data=True,
-#     ext_modules=cythonize(
-#         Extension(
-#             "densecrf_np.py_permutohedral",
-#             sources=["densecrf_np/py_permutohedral.pyx"],
-#             include_dirs=[np.get_include()]
-#         ),
-#     ),
+    ext_modules=cythonize(
+        Extension(
+            "densecrf_np.py_permutohedral",
+            sources=["densecrf_np/py_permutohedral.pyx"],
+            include_dirs=[np.get_include()]
+        ),
+    ),
 )
