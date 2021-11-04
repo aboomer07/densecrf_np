@@ -37,8 +37,8 @@ class DenseCRF(object):
         self.spatial_ker_weight=3
         self.bilateral_ker_weight=10
 
-        self.sp = SpatialPairwise(image, gamma, gamma)
-        self.bp = BilateralPairwise(image, alpha, alpha, beta, beta, beta)
+        self.sp = SpatialPairwise(image, self.gamma, self.gamma)
+        self.bp = BilateralPairwise(image, self.alpha, self.alpha, self.beta, self.beta, self.beta)
 
 #         self.spatial_weight = params.spatial_ker_weight
 #         self.bilateral_weight = params.bilateral_ker_weight
