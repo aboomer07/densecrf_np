@@ -36,7 +36,9 @@ class DenseCRF(object):
         self.gamma=3
         self.spatial_ker_weight=3
         self.bilateral_ker_weight=10
-
+        
+        image = np.resize(image, (image.shape[0] * image.shape[1], 1))
+        
         self.sp = SpatialPairwise(image, self.gamma, self.gamma)
         self.bp = BilateralPairwise(image, self.alpha, self.alpha, self.beta, self.beta, self.beta)
 
