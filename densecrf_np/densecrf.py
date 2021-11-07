@@ -30,21 +30,24 @@ import numpy as np
 
 class DenseCRF(object):
 
-    def __init__(self, image):
-#         alpha, beta, gamma = params.alpha, params.beta, params.gamma
-        self.alpha=80
-        self.beta=13
-        self.gamma=3
-        self.spatial_weight=0.3
-        self.bilateral_weight=10
+    def __init__(self, image, params=None):
+        if params is not None:
+            self.alpha = params[0]
+            self.beta = params[1]
+            self.gamma = params[2]
+            self.spatial_weight = params[3]
+            self.bilaterial_weight = params[4]
+        else:
+            self.alpha=80
+            self.beta=13
+            self.gamma=3
+            self.spatial_weight=3
+            self.bilateral_weight=10
         
         self.img = image
         
         self.sp = SpatialPairwise(image, self.gamma, self.gamma)
         self.bp = BilateralPairwise(image, self.alpha, self.alpha, self.beta, self.beta, self.beta)
-
-#         self.spatial_weight = params.spatial_ker_weight
-#         self.bilateral_weight = params.bilateral_ker_weight
 
     def infer(self, unary_logits, num_iterations=5):
         unary_logits = np.resize(unary_logits, (512, 512, 18))
