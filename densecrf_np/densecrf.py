@@ -36,7 +36,7 @@ class DenseCRF(object):
             self.beta = params[1]
             self.gamma = params[2]
             self.spatial_weight = params[3]
-            self.bilaterial_weight = params[4]
+            self.bilateral_weight = params[4]
         else:
             self.alpha=80
             self.beta=13
